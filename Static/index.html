@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShoppingMart</title>
+
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>-->
+    <meta name="viewport" content="user-scalable=0"/>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css"/>
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/style.css"/>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="/bower_components/angular-material/angular-material.min.js"></script>
+    <script src="/bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+    <script src="/bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="/bower_components/angular-material/angular-material.min.js"></script>
+  <!-- Services-->
+    <script src="./js/main.js"></script>
+    <script src="./js/controller/appController.js"></script>
+
+    <base href="/ShoppingMart/" />
+</head>
+
+<body>
+<section ng-app="ShoppingMart" ng-cloak class="md-inline-form" ngController="loginController" md-theme="docs-dark" >
+    <md-content  layout-padding >
+        <div   layout-gt-xs="row" layout-align="center"    >
+            <form name="loginform">
+                <div >
+                    <md-input-container style="width: 25rem">
+                        <label>Email</label>
+                        <input ng-model="email" type="email" >
+                     </md-input-container></div>
+                 <div  >
+                     <md-input-container style="width: 25rem">
+                         <label>Password</label>
+                         <input ng-model="pwd" type="password">
+                     </md-input-container></div>
+                <div>
+                    <md-button type="submit" class="md-accent md-raised">Submit</md-button>
+                </div>
+            </form>
+        </div>
+        <h1>hello</h1>
+        <h2>Bye</h2>
+    </md-content>
+
+
+</section>
+</body>
+</html>
