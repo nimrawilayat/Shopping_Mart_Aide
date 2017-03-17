@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,29 +29,45 @@
 </head>
 
 <body>
-<section ng-app="ShoppingMart" ng-cloak class="md-inline-form" ngController="loginController" md-theme="docs-dark" >
-    <md-content  layout-padding >
-        <div   layout-gt-xs="row" layout-align="center"    >
-            <form name="loginform">
-                <div >
-                    <md-input-container style="width: 25rem">
-                        <label>Email</label>
-                        <input ng-model="email" type="email" >
-                     </md-input-container></div>
-                 <div  >
-                     <md-input-container style="width: 25rem">
-                         <label>Password</label>
-                         <input ng-model="pwd" type="password">
-                     </md-input-container></div>
-                <div>
-                    <md-button type="submit" class="md-accent md-raised">Submit</md-button>
-                </div>
-            </form>
+    <!--<div ng-app="shoppingMart">
+        <div ng-controller ="loginController">
+            Hello from login page
         </div>
+    </div>-->
+    <section ng-app="shoppingMart" ng-controller="loginController as vm" ng-cloak md-theme="docs-dark"  >
+        <md-content  layout-padding >
+            <div   layout-gt-xs="row" layout-align="center">
+                <div class="flex-container">
 
-    </md-content>
+                    <div class="flex-item" >
+                        <form name="loginform" novalidate >
+                            <div>
+                                <md-input-container style="width: 25rem" class="input-container">
+                                    <label>Email</label>
+                                    <input ng-model="email" type="email" required >
+                                    <span ng-show="loginform.email.$error.required">Email Address is required</span>
+                                    <span ng-show="loginform.email.$error.email">Invalid Email Address</span>
+                                </md-input-container>
+                            </div>
+                            <div>
+                                <md-input-container style="width: 25rem">
+                                    <label>Password</label>
+                                    <input ng-model="pwd" type="password" required>
+                                    <span ng-show="loginform.pwd.$error.required">Email Address is required</span>
+                                </md-input-container></div>
+                            <div>
+                                <md-button type="submit" ng-click="submit()"  class="md-accent md-raised">Submit</md-button><!-- ng-disabled="loginform.email.$dirty && loginform.email.$invalid ||
+loginform.pwd.$dirty && loginform.pwd.$invalid"-->
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </md-content>
 
 
-</section>
+    </section>
 </body>
 </html>

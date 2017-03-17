@@ -1,16 +1,17 @@
 (function(){
-   var app=angular.module("ShoppingMart",['ngMaterial'])
-       .controller("loginController", ["$rootScope", "$state", "$http",
-            function($rootScope, $state, $http){
+    angular.module("shoppingMart")
+        .controller("loginController", ["$rootScope", "$http",
+            function($rootScope,  $http){
                 var vm = this;
 
             }
         ]).config(function($mdThemingProvider) {
 
-           // Configure a dark theme with primary foreground yellow
+        // Configure a dark theme with primary foreground yellow
 
-           $mdThemingProvider.theme('docs-dark', 'default')
-               .primaryPalette('yellow')
-               .dark();
-       });
-})();
+        $mdThemingProvider.theme('docs-dark', 'default')
+            .primaryPalette('yellow')
+            .dark();
+    });
+
+})()
