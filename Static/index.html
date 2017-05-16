@@ -1,5 +1,5 @@
 <DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="shoppingMart">
 <head>
     <meta charset="UTF-8">
     <title>ShoppingMart</title>
@@ -8,7 +8,7 @@
     <meta name="viewport" content="user-scalable=0"/>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css"/>
-    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">-->
     <link rel="stylesheet" href="./css/style.css"/>
     <script src="/bower_components/angular/angular.min.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -24,50 +24,50 @@
   <!-- Services-->
     <script src="./js/main.js"></script>
     <script src="./js/controller/appController.js"></script>
-
+    <script src="./js/services/appServices.js"></script>
     <base href="/ShoppingMart/" />
 </head>
 
 <body>
-    <!--<div ng-app="shoppingMart">
-        <div ng-controller ="loginController">
-            Hello from login page
-        </div>
-    </div>-->
-    <section ng-app="shoppingMart" ng-controller="loginController as vm" ng-cloak md-theme="docs-dark"  >
+    <section  ng-controller ="loginController as vm"  ng-cloak md-theme="docs-dark"  >
+        <div >
         <md-content  layout-padding >
             <div   layout-gt-xs="row" layout-align="center">
                 <div class="flex-container">
-
                     <div class="flex-item" >
-                        <form name="loginform" novalidate >
+                        <form ng-submit="vm.doLogin()" name="loginform" novalidate >
                             <div>
                                 <md-input-container style="width: 25rem" class="input-container">
                                     <label>Email</label>
-                                    <input ng-model="email" type="email" required >
-                                    <span ng-show="loginform.email.$error.required">Email Address is required</span>
-                                    <span ng-show="loginform.email.$error.email">Invalid Email Address</span>
+                                    <input type="email" name="email" ng-model="vm.user.email"  required>
+                                    <span ng-show="loginform.email.$dirty && loginform.email.$invalid">
+                                        <span ng-show="loginform.email.$error.required">Email Address is required</span>
+                                        <span ng-show="loginform.email.$error.email">Invalid Email Address</span>
+                                    </span>
                                 </md-input-container>
                             </div>
                             <div>
                                 <md-input-container style="width: 25rem">
                                     <label>Password</label>
-                                    <input ng-model="pwd" type="password" required>
-                                    <span ng-show="loginform.pwd.$error.required">Email Address is required</span>
-                                </md-input-container></div>
+                                    <input type="password" name="pwd" ng-model="vm.user.password"  required>
+                                    <span ng-show="loginform.pwd.$dirty">
+                                        <span ng-show="loginform.pwd.$error.required">Password is required</span>
+                                    </span>
+                                </md-input-container>
+                            </div>
                             <div>
-                                <md-button type="submit" ng-click="submit()"  class="md-accent md-raised">Submit</md-button><!-- ng-disabled="loginform.email.$dirty && loginform.email.$invalid ||
-loginform.pwd.$dirty && loginform.pwd.$invalid"-->
+
+
+                                <md-button type="submit" class="md-accent md-raised"
+                                           ng-disabled="loginform.email.$dirty && loginform.email.$invalid ||
+                                            loginform.pwd.$dirty && loginform.pwd.$invalid">Submit</md-button>
                             </div>
                         </form>
                     </div>
-
                 </div>
             </div>
-
         </md-content>
-
-
+        </div>
     </section>
 </body>
 </html>

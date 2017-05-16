@@ -1,0 +1,46 @@
+
+
+
+
+
+
+
+
+<section ng-app="shoppingMart"  ng-cloak md-theme="docs-dark"  >
+<div ng-controller ="loginController">
+    <md-content  layout-padding >
+        <div   layout-gt-xs="row" layout-align="center">
+            <div class="flex-container">
+                <div class="flex-item" >
+                    <form name="loginform"   novalidate >
+                        <div>
+                            <md-input-container style="width: 25rem" class="input-container">
+                                <label>Email</label>
+                                <input type="email" name="email" ng-model="email"  required>
+                                <span ng-show="loginform.email.$dirty && loginform.email.$invalid">
+                                        <span ng-show="loginform.email.$error.required">Email Address is required</span>
+                                        <span ng-show="loginform.email.$error.email">Invalid Email Address</span>
+                                    </span>
+                            </md-input-container>
+                        </div>
+                        <div>
+                            <md-input-container style="width: 25rem">
+                                <label>Password</label>
+                                <input type="password" name="pwd" ng-model="pwd"  required>
+                                <span ng-show="loginform.pwd.$dirty">
+                                        <span ng-show="loginform.pwd.$error.required">Password is required</span>
+                                    </span>
+                            </md-input-container>
+                        </div>
+                        <div>
+                            <md-button type="submit" class="md-accent md-raised"
+                                       ng-disabled="loginform.email.$dirty && loginform.email.$invalid ||
+                                            loginform.pwd.$dirty && loginform.pwd.$invalid">Submit</md-button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </md-content>
+</div>
+    </section>

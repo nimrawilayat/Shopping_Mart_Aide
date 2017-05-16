@@ -22,9 +22,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'Static')));
 app.use('/bower_components',express.static(path.join(__dirname, '/bower_components')))
-app.use('/', index);
-app.use('/users', users);
+//app.use('/', index);
 
+require("./routes/appRoutes").ShoppingMart.Routes.initRoutes(app);
+//require('./routes/appRoutes').ShoppingMart.Routes.appRoutes(router);
+//app.use('/', appRoutes);
+app.use('/users', users);
+var routes = require('./routes');
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
